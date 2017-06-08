@@ -1,0 +1,7 @@
+flask
+flask-api
+flask-limiter
+flask-login
+flask-migrate
+flask-sqlalchemy
+psycopg2
