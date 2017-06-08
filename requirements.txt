@@ -1,7 +1,9 @@
+blueprint
 flask
 flask-api
 flask-limiter
 flask-login
 flask-migrate
+flask-script
 flask-sqlalchemy
 psycopg2
