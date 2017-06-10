@@ -1,6 +1,6 @@
 from flask_login import UserMixin
 
-from app import db
+from app.extensions import db
 
 class User(db.Model, UserMixin):
     """This class represents a user of the api."""
