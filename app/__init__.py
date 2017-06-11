@@ -3,6 +3,7 @@ from flask import Flask, jsonify, make_response
 from instance.config import app_config
 from app.api import common, private, public
 from app.extensions import db, limiter, login_manager
+from app.models import User
 
 DEFAULT_BLUEPRINTS = [
     common,
@@ -20,6 +21,7 @@ def create_app(config_name='development', blueprints=None):
     configure_extensions(app)
     configure_error_handlers(app)
     configure_hooks(app)
+    populate_db(app, config_name)
 
     return app
 
@@ -36,9 +38,6 @@ def configure_extensions(app):
     db.init_app(app)
     limiter.init_app(app)
     login_manager.init_app(app)
-
-def configure_hooks(app):
-    pass
 
 def configure_error_handlers(app):
     @app.errorhandler(400)
@@ -64,4 +63,17 @@ def configure_error_handlers(app):
     def not_found(e):
         return make_response(jsonify(error=e.description), 500)
 
+def configure_hooks(app):
+    pass
 
+def populate_db(app, config_name):
+    if config_name == 'testing':
+        with app.app_context():
+            user = User.query.get(1)
+
+            if user:
+                user.api_key = '1234'
+            else:
+                db.session.add(User(1, 'admin', '1234'))
+
+            db.session.commit()
