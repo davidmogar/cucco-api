@@ -1,8 +1,8 @@
 # cucco-api
 
-Oh, cucco. That [great friend](https://github.com/davidmogar/cucco)! That little chicken know how to do it job, right?
+Oh, cucco. That [great friend](https://github.com/davidmogar/cucco)! That little chicken know how to do its job, right?
 
-The only problem is that at the end it's hard to have the patience to tame it. And here is where this project comes handy. This simple library will connect users with an efficient cucco so everybody can normalize their texts easily.
+The only problem is that it's hard to have the patience to tame it. And here is where this project comes handy. This simple library will connect users with an efficient cucco so everybody can normalize their texts easily.
 
 ## You're intriguing me and I wish to know a bit more...
 
@@ -57,6 +57,6 @@ An endpoint is a route to which you can send a request. The next sections show a
 
 ### Cucco allows to personalize the normalizations. Can I do the same with the API?
 
-As a matter of fact yes, you can. The API admits the same parameters that cucco admit you the way to use it is really similar.
+As a matter of fact yes, you can. The API admits the same parameters that cucco admit so the way to use it is really similar.
 
 To know more about how to use the API you can visit [documentation.cucco.io](documentation.cucco.io).
