@@ -20,7 +20,6 @@ def create_app(config_name='development', blueprints=None):
     configure_blueprints(app, blueprints)
     configure_extensions(app)
     configure_error_handlers(app)
-    configure_hooks(app)
     populate_db(app, config_name)
 
     return app
@@ -62,9 +61,6 @@ def configure_error_handlers(app):
     @app.errorhandler(500)
     def not_found(e):
         return make_response(jsonify(error=e.description), 500)
-
-def configure_hooks(app):
-    pass
 
 def populate_db(app, config_name):
     if config_name == 'testing':
