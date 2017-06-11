@@ -1,7 +1,6 @@
 blueprint
 cucco
 flask
-flask-api
 flask-limiter
 flask-login
 flask-migrate
