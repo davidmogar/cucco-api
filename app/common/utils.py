@@ -19,7 +19,7 @@ def prepare_response(result, keys, values):
 
     for i, key in enumerate(keys):
         if values[i]:
-            data[key] = values[i]
+            data[key] = list(values[i]) if isinstance(values[i], set) else values[i]
 
     data['text'] = result
 
