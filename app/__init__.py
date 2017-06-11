@@ -1,5 +1,4 @@
-from flask import jsonify, make_response
-from flask_api import FlaskAPI
+from flask import Flask, jsonify, make_response
 
 from instance.config import app_config
 from app.api import common, private, public
@@ -15,7 +14,7 @@ def create_app(config_name='development', blueprints=None):
     if blueprints is None:
         blueprints = DEFAULT_BLUEPRINTS
 
-    app = FlaskAPI(__name__, instance_relative_config=True)
+    app = Flask(__name__, instance_relative_config=True)
     configure_app(app, config_name)
     configure_blueprints(app, blueprints)
     configure_extensions(app)
@@ -60,3 +59,9 @@ def configure_error_handlers(app):
                 jsonify(error='ratelimit exceeded',
                         requests='%s' % e.description),
                 429)
+
+    @app.errorhandler(500)
+    def not_found(e):
+        return make_response(jsonify(error=e.description), 500)
+
+
