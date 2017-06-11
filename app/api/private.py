@@ -42,6 +42,13 @@ def hyphens():
 
     return functions.replace_hyphens(request)
 
+@private.route('/normalize', methods=['GET', 'POST'])
+@login_required
+def normalize():
+    track_event('private', 'normalize', request.method)
+
+    return functions.normalize(request)
+
 @private.route('/punctuation', methods=['GET', 'POST'])
 @login_required
 def punctuation():

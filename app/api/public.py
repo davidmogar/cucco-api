@@ -41,6 +41,13 @@ def hyphens():
 
     return functions.replace_hyphens(request)
 
+@public.route('/normalize', methods=['GET', 'POST'])
+@limiter.limit('10 per hour')
+def normalize():
+    track_event('public', 'normalize', request.method)
+
+    return functions.normalize(request)
+
 @public.route('/punctuation', methods=['GET', 'POST'])
 @limiter.limit('30 per hour')
 def punctuation():
