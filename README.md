@@ -1,6 +1,6 @@
 # cucco-api
 
-Oh, cucco. That [great friend](https://github.com/davidmogar/cucco)! That little chicken know how to do its job, right?
+Oh, [cucco](https://github.com/davidmogar/cucco), Such a great friend! That little chicken know how to do its job, right?
 
 The only problem is that it's hard to have the patience to tame it. And here is where this project comes handy. This simple library will connect users with an efficient cucco so everybody can normalize their texts easily.
 
