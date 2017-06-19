@@ -1,3 +1,2 @@
-from app.api.common import common
 from app.api.private import private
-from app.api.public import public
+from app.api.v1 import api as api_v1
