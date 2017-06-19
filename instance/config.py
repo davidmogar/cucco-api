@@ -7,6 +7,7 @@ class Config(object):
     LOG_FOLDER = os.getenv('LOG_FOLDER')
     SECRET = os.getenv('SECRET')
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
+    RATELIMIT_HEADERS_ENABLED = True
 
 class DevelopmentConfig(Config):
     """Configurations for Development."""
