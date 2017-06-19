@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required
 
+from app.api import common
 from app.common import functions
 from app.common.analytics import track_event
 from app.extensions import limiter
@@ -55,6 +56,10 @@ def punctuation():
     track_event('private', 'punctuation', request.method)
 
     return functions.replace_punctuation(request)
+
+@private.route('/status', methods=['GET', 'POST'])
+def status():
+    return common.status()
 
 @private.route('/stopwords', methods=['GET', 'POST'])
 @login_required
