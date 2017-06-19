@@ -1,12 +1,13 @@
 from flask import Flask, jsonify, make_response
 
 from instance.config import app_config
-from app.api import api_v1
+from app.api import api_v1, private
 from app.extensions import db, limiter, login_manager
 from app.models import User
 
 DEFAULT_BLUEPRINTS = [
-    api_v1
+    api_v1,
+    private
 ]
 
 def create_app(config_name='development', blueprints=None):
