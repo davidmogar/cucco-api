@@ -22,34 +22,34 @@ class TestLimits(TestCase):
                 'limit should have been reached'
 
     def test_accents_limit(self):
-        self._test_rate_limit('/api/public/accents?text=foo', 30)
+        self._test_rate_limit('/api/v1/accents?text=foo', 30)
 
     def test_characters_limit(self):
-        self._test_rate_limit('/api/public/characters?text=foo', 30)
+        self._test_rate_limit('/api/v1/characters?text=foo', 30)
 
     def test_emails_limit(self):
-        self._test_rate_limit('/api/public/emails?text=foo', 30)
+        self._test_rate_limit('/api/v1/emails?text=foo', 30)
 
     def test_emojis_limit(self):
-        self._test_rate_limit('/api/public/emojis?text=foo', 30)
+        self._test_rate_limit('/api/v1/emojis?text=foo', 30)
 
     def test_hyphens_limit(self):
-        self._test_rate_limit('/api/public/hyphens?text=foo', 30)
+        self._test_rate_limit('/api/v1/hyphens?text=foo', 30)
 
     def test_normalize_limit(self):
-        self._test_rate_limit('/api/public/normalize?text=foo', 10)
+        self._test_rate_limit('/api/v1/normalize?text=foo', 10)
 
     def test_punctuation_limit(self):
-        self._test_rate_limit('/api/public/punctuation?text=foo', 30)
+        self._test_rate_limit('/api/v1/punctuation?text=foo', 30)
 
     def test_stopwords_limit(self):
-        self._test_rate_limit('/api/public/stopwords?text=foo', 10)
+        self._test_rate_limit('/api/v1/stopwords?text=foo', 10)
 
     def test_symbols_limit(self):
-        self._test_rate_limit('/api/public/symbols?text=foo', 30)
+        self._test_rate_limit('/api/v1/symbols?text=foo', 30)
 
     def test_urls_limit(self):
-        self._test_rate_limit('/api/public/urls?text=foo', 30)
+        self._test_rate_limit('/api/v1/urls?text=foo', 30)
 
     def test_whitespaces_limit(self):
-        self._test_rate_limit('/api/public/whitespaces?text=foo', 30)
+        self._test_rate_limit('/api/v1/whitespaces?text=foo', 30)
