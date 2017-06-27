@@ -9,7 +9,7 @@ class TestCommon(TestCase):
         return create_app('testing')
 
     def test_status_ok(self):
-        response = self.client.get('/api/v1/status')
+        response = self.client.get('/v1/status')
 
         assert response.json == dict(status='ok'), \
                 'status value should be "ok"'

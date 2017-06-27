@@ -18,125 +18,125 @@ class TestGetRequests(TestCase):
                     'status_code should be 400'
 
     def test_accents_get_request(self):
-        self._test_call(['/api/v1/accents?text=foo'],
-                        ['/api/v1/accents?'])
+        self._test_call(['/v1/accents?text=foo'],
+                        ['/v1/accents?'])
 
     def test_characters_get_request(self):
         self._test_call(
             [
-                '/api/v1/characters?text=foo',
-                '/api/v1/characters?text=foo&characters=foo',
-                '/api/v1/characters?text=foo&replacement=bar',
-                '/api/v1/characters?text=foo&characters=foo&replacement=bar'
+                '/v1/characters?text=foo',
+                '/v1/characters?text=foo&characters=foo',
+                '/v1/characters?text=foo&replacement=bar',
+                '/v1/characters?text=foo&characters=foo&replacement=bar'
             ],
             [
-                '/api/v1/characters?',
-                '/api/v1/characters?characters=foo'
-                '/api/v1/characters?replacement=bar',
-                '/api/v1/characters?characters=foo&replacement=bar'
+                '/v1/characters?',
+                '/v1/characters?characters=foo'
+                '/v1/characters?replacement=bar',
+                '/v1/characters?characters=foo&replacement=bar'
             ]
         )
 
     def test_emails_get_request(self):
         self._test_call(
             [
-                '/api/v1/emails?text=foo',
-                '/api/v1/emails?text=foo&replacement=foo'
+                '/v1/emails?text=foo',
+                '/v1/emails?text=foo&replacement=foo'
             ],
             [
-                '/api/v1/emails?',
-                '/api/v1/emails?replacement=foo'
+                '/v1/emails?',
+                '/v1/emails?replacement=foo'
             ]
         )
 
     def test_emojis_get_request(self):
         self._test_call(
             [
-                '/api/v1/emojis?text=foo',
-                '/api/v1/emojis?text=foo&replacement=foo'
+                '/v1/emojis?text=foo',
+                '/v1/emojis?text=foo&replacement=foo'
             ],
             [
-                '/api/v1/emojis?',
-                '/api/v1/emojis?replacement=foo'
+                '/v1/emojis?',
+                '/v1/emojis?replacement=foo'
             ]
         )
 
     def test_hyphens_get_request(self):
         self._test_call(
             [
-                '/api/v1/hyphens?text=foo',
-                '/api/v1/hyphens?text=foo&replacement=foo'
+                '/v1/hyphens?text=foo',
+                '/v1/hyphens?text=foo&replacement=foo'
             ],
             [
-                '/api/v1/hyphens?',
-                '/api/v1/hyphens?replacement=foo'
+                '/v1/hyphens?',
+                '/v1/hyphens?replacement=foo'
             ]
         )
 
     def test_normalize_get_request(self):
-        self._test_call(['/api/v1/normalize?text=foo'],
-                        ['/api/v1/normalize?'])
+        self._test_call(['/v1/normalize?text=foo'],
+                        ['/v1/normalize?'])
 
     def test_punctuation_get_request(self):
         self._test_call(
             [
-                '/api/v1/punctuation?text=foo',
-                '/api/v1/punctuation?text=foo&excluded=foo',
-                '/api/v1/punctuation?text=foo&replacement=bar',
-                '/api/v1/punctuation?text=foo&excluded=foo&replacement=bar'
+                '/v1/punctuation?text=foo',
+                '/v1/punctuation?text=foo&excluded=foo',
+                '/v1/punctuation?text=foo&replacement=bar',
+                '/v1/punctuation?text=foo&excluded=foo&replacement=bar'
             ],
             [
-                '/api/v1/punctuation?',
-                '/api/v1/punctuation?excluded=foo',
-                '/api/v1/punctuation?replacement=bar',
-                '/api/v1/punctuation?excluded=foo&replacement=bar'
+                '/v1/punctuation?',
+                '/v1/punctuation?excluded=foo',
+                '/v1/punctuation?replacement=bar',
+                '/v1/punctuation?excluded=foo&replacement=bar'
             ]
         )
 
     def test_stopwords_get_request(self):
         self._test_call(
             [
-                '/api/v1/stopwords?text=foo',
-                '/api/v1/stopwords?text=foo&language=en',
-                '/api/v1/stopwords?text=foo&ignore_case=true',
-                '/api/v1/stopwords?text=foo&ignore_case=true&language=en'
+                '/v1/stopwords?text=foo',
+                '/v1/stopwords?text=foo&language=en',
+                '/v1/stopwords?text=foo&ignore_case=true',
+                '/v1/stopwords?text=foo&ignore_case=true&language=en'
             ],
             [
-                '/api/v1/stopwords?',
-                '/api/v1/stopwords?language=en'
+                '/v1/stopwords?',
+                '/v1/stopwords?language=en'
             ]
         )
 
     def test_symbols_get_request(self):
         self._test_call(
             [
-                '/api/v1/symbols?text=foo',
-                '/api/v1/symbols?text=foo&form=NFKD',
-                '/api/v1/symbols?text=foo&excluded=foo',
-                '/api/v1/symbols?text=foo&replacement=bar',
-                '/api/v1/symbols?text=foo&form=NFKD&excluded=foo&replacement=bar'
+                '/v1/symbols?text=foo',
+                '/v1/symbols?text=foo&form=NFKD',
+                '/v1/symbols?text=foo&excluded=foo',
+                '/v1/symbols?text=foo&replacement=bar',
+                '/v1/symbols?text=foo&form=NFKD&excluded=foo&replacement=bar'
             ],
             [
-                '/api/v1/symbols?',
-                '/api/v1/symbols?form=NFKD',
-                '/api/v1/symbols?excluded=foo',
-                '/api/v1/symbols?replacement=bar',
-                '/api/v1/symbols?form=NFKD&excluded=foo&replacement=bar'
+                '/v1/symbols?',
+                '/v1/symbols?form=NFKD',
+                '/v1/symbols?excluded=foo',
+                '/v1/symbols?replacement=bar',
+                '/v1/symbols?form=NFKD&excluded=foo&replacement=bar'
             ]
         )
 
     def test_urls_get_request(self):
         self._test_call(
             [
-                '/api/v1/urls?text=foo',
-                '/api/v1/urls?text=foo&replacement=foo'
+                '/v1/urls?text=foo',
+                '/v1/urls?text=foo&replacement=foo'
             ],
             [
-                '/api/v1/urls?',
-                '/api/v1/urls?replacement=foo'
+                '/v1/urls?',
+                '/v1/urls?replacement=foo'
             ]
         )
 
     def test_whitespaces_get_request(self):
-        self._test_call(['/api/v1/whitespaces?text=foo'],
-                        ['/api/v1/whitespaces?'])
+        self._test_call(['/v1/whitespaces?text=foo'],
+                        ['/v1/whitespaces?'])

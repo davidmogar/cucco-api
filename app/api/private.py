@@ -6,7 +6,7 @@ from app.common import functions
 from app.common.analytics import track_event
 from app.extensions import limiter
 
-private = Blueprint('private', __name__, url_prefix='/api/private')
+private = Blueprint('private', __name__, url_prefix='/private')
 
 @private.route('/accents', methods=['GET', 'POST'])
 @login_required

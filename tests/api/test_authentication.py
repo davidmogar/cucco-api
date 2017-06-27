@@ -25,34 +25,34 @@ class TestAuthentication(TestCase):
                 'should be authorized'
 
     def test_accents_authentication(self):
-        self._test_authentication('/api/private/accents?text=foo')
+        self._test_authentication('/private/accents?text=foo')
 
     def test_characters_authentication(self):
-        self._test_authentication('/api/private/characters?text=foo')
+        self._test_authentication('/private/characters?text=foo')
 
     def test_emails_authentication(self):
-        self._test_authentication('/api/private/emails?text=foo')
+        self._test_authentication('/private/emails?text=foo')
 
     def test_emojis_authentication(self):
-        self._test_authentication('/api/private/emojis?text=foo')
+        self._test_authentication('/private/emojis?text=foo')
 
     def test_hyphens_authentication(self):
-        self._test_authentication('/api/private/hyphens?text=foo')
+        self._test_authentication('/private/hyphens?text=foo')
 
     def test_normalize_authentication(self):
-        self._test_authentication('/api/private/normalize?text=foo')
+        self._test_authentication('/private/normalize?text=foo')
 
     def test_punctuation_authentication(self):
-        self._test_authentication('/api/private/punctuation?text=foo')
+        self._test_authentication('/private/punctuation?text=foo')
 
     def test_stopwords_authentication(self):
-        self._test_authentication('/api/private/stopwords?text=foo')
+        self._test_authentication('/private/stopwords?text=foo')
 
     def test_symbols_authentication(self):
-        self._test_authentication('/api/private/symbols?text=foo')
+        self._test_authentication('/private/symbols?text=foo')
 
     def test_urls_authentication(self):
-        self._test_authentication('/api/private/urls?text=foo')
+        self._test_authentication('/private/urls?text=foo')
 
     def test_whitespaces_authentication(self):
-        self._test_authentication('/api/private/whitespaces?text=foo')
+        self._test_authentication('/private/whitespaces?text=foo')
