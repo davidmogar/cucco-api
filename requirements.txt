@@ -1,5 +1,5 @@
 blueprint
-cucco
+cucco==2.2.1
 flask
 flask-limiter
 flask-login
