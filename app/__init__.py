@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, make_response
 
-from instance.config import app_config
 from app.api import api_v1, private
 from app.extensions import db, limiter, login_manager
 from app.models import User
@@ -10,22 +9,21 @@ DEFAULT_BLUEPRINTS = [
     private
 ]
 
-def create_app(config_name='development', blueprints=None):
+def create_app(config_object='config.DevelopmentConfig', blueprints=None):
     if blueprints is None:
         blueprints = DEFAULT_BLUEPRINTS
 
     app = Flask(__name__, instance_relative_config=True)
-    configure_app(app, config_name)
+    configure_app(app, config_object)
     configure_blueprints(app, blueprints)
     configure_extensions(app)
     configure_error_handlers(app)
-    populate_db(app, config_name)
 
     return app
 
-def configure_app(app, config_name):
-    app.config.from_object(app_config[config_name])
-    app.config.from_pyfile('config.py')
+def configure_app(app, config_object):
+    app.config.from_object(config_object)
+    app.config.from_pyfile('config.cfg', silent=True)
 
 def configure_blueprints(app, blueprints):
     for blueprint in blueprints:
@@ -60,15 +58,3 @@ def configure_error_handlers(app):
     @app.errorhandler(500)
     def not_found(e):
         return make_response(jsonify(error=e.description), 500)
-
-def populate_db(app, config_name):
-    if config_name == 'testing':
-        with app.app_context():
-            user = User.query.get(1)
-
-            if user:
-                user.api_key = '1234'
-            else:
-                db.session.add(User(1, 'admin', '1234'))
-
-            db.session.commit()
