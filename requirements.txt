@@ -2,9 +2,8 @@ blueprint
 cucco==2.2.1
 flask
 flask-limiter
-flask-login
 flask-migrate
-flask-script
+flask-security
 flask-sqlalchemy
 psycopg2
 requests

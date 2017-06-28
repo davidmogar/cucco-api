@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, g, jsonify, make_response, request
 from flask_login import login_required
 
 from app.api import common
@@ -74,6 +74,18 @@ def symbols():
     track_event('private', 'symbols', request.method)
 
     return functions.replace_symbols(request)
+
+@private.route('/token')
+@login_required
+def token():
+    duration = 600
+    token = g.user.generate_auth_token(duration)
+    return make_response(jsonify({
+        'token': token.decode('ascii'),
+        'duration': duration,
+        'message': 'manual token request needed after expiration time (%s minutes)'
+            % int(duration / 60)
+     }))
 
 @private.route('/urls', methods=['GET', 'POST'])
 @login_required

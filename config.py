@@ -2,6 +2,7 @@ import os
 
 class Config(object):
     """Parent configuration class."""
+    API_SECRET = os.getenv('API_SECRET')
     CSRF_ENABLED = True
     DEBUG = False
     LOG_FOLDER = os.getenv('LOG_FOLDER')

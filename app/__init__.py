@@ -2,7 +2,7 @@ from flask import Flask, jsonify, make_response
 
 from app.api import api_v1, private
 from app.extensions import db, limiter, login_manager
-from app.models import User
+from app.models import Role, User, user_datastore
 
 DEFAULT_BLUEPRINTS = [
     api_v1,
@@ -42,7 +42,7 @@ def configure_error_handlers(app):
 
     @app.errorhandler(401)
     def bad_request(e):
-        return make_response(jsonify(error='unauthorized'), 401)
+        return make_response(jsonify(error=e.description), 401)
 
     @app.errorhandler(404)
     def not_found(e):
