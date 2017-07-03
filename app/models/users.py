@@ -38,6 +38,7 @@ class User(db.Model, UserMixin):
 
     @staticmethod
     def verify_auth_token(token):
+        data = None
         serializer = Serializer(current_app.config['API_SECRET'])
 
         try:
