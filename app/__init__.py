@@ -35,6 +35,9 @@ def configure_extensions(app):
     limiter.init_app(app)
     login_manager.init_app(app)
 
+    from flask_cors import CORS, cross_origin
+    CORS(app)
+
 def configure_error_handlers(app):
     @app.errorhandler(400)
     def bad_request(e):

@@ -1,6 +1,7 @@
 blueprint
 cucco==2.2.1
 flask
+flask-cors
 flask-limiter
 flask-migrate
 flask-security
