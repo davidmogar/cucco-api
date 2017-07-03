@@ -5,7 +5,6 @@ from app.common.analytics import track_event
 
 common = Blueprint('common', __name__, url_prefix='/')
 
-#@common.route('/status', methods=['GET'])
 def status():
     track_event('common', 'status', request.method)
 

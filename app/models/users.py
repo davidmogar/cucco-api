@@ -13,8 +13,13 @@ roles_users = db.Table('roles_users',
         db.Column('role_id', db.Integer(), db.ForeignKey('roles.id')))
 
 class User(db.Model, UserMixin):
-    """This class represents a user of the api."""
+    """This class represents a user of the API.
 
+    Attributes:
+        username: Username of the user.
+        email: Email address.
+        password: Password of the user.
+    """
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -31,6 +36,13 @@ class User(db.Model, UserMixin):
         return '<User({}, {}, username={}): {}>'.format(self.id, self.username, self.email, self.is_autheicated)
 
     def generate_auth_token(self, expiration = 600):
+        """Generate a new token.
+
+        Generates a short life new token for the current user.
+
+        Attributes:
+            expiration: Time after when the token becomes invalid.
+        """
         serializer = Serializer(current_app.config['API_SECRET'],
                                                      expires_in = expiration)
         return serializer.dumps({ 'id': self.id })
@@ -38,6 +50,17 @@ class User(db.Model, UserMixin):
 
     @staticmethod
     def verify_auth_token(token):
+        """Verify a given token.
+
+        Verifies a token received as argument and returns the matching user if
+        this is found in the database.
+
+        Attributes:
+            token: Token to verify.
+
+        Returns:
+            A user linked by the token if found.
+        """
         data = None
         serializer = Serializer(current_app.config['API_SECRET'])
 

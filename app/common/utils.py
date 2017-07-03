@@ -2,6 +2,18 @@ from distutils.util import strtobool
 from flask import make_response, jsonify
 
 def get_data(request, keys):
+    """Return a list of data from the request.
+
+    Returns a list of key:value pairs from the data of a request
+    if the keys are defined.
+
+    Attributes:
+        request: Current request.
+        keys: Keys to search for.
+
+    Returns:
+        A list of key:value pairs.
+    """
     values = []
 
     data = request.get_json() if request.method == 'POST' else None
@@ -15,6 +27,16 @@ def get_data(request, keys):
     return values
 
 def prepare_response(result, keys, values):
+    """Prepare the response for a request.
+
+    Attributes:
+        result: Result of the normalization.
+        keys: Options used.
+        values: Values for the options.
+
+    Returns:
+        A valid answer.
+    """
     data = dict()
 
     for i, key in enumerate(keys):
@@ -26,6 +48,14 @@ def prepare_response(result, keys, values):
     return make_response(jsonify(data))
 
 def to_boolean(value, none_value=False):
+    """Converts a value to boolean.
+
+    Attributes:
+        value: Value to convert.
+
+    Returns:
+        A boolean representing the value.
+    """
     if value is None:
         value = none_value
     elif not isinstance(value, bool):

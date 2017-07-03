@@ -5,6 +5,14 @@ GA_URL = 'http://www.google-analytics.com/collect'
 GA_TRACKING_ID = os.environ['GA_TRACKING_ID']
 
 def track_event(category, action, label=None, value=0):
+    """Send a new event to Google Analytics.
+
+    Attributes:
+        category: Category of the event.
+        action: Action performed.
+        label: Label for the new event.
+        value: Value to associate with the event.
+    """
     data = {
         'v': '1',               # API version
         'tid': GA_TRACKING_ID,  # Tracking ID
