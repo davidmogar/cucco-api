@@ -63,13 +63,15 @@ class User(db.Model, UserMixin):
         """
         data = None
         serializer = Serializer(current_app.config['API_SECRET'])
+        user = None
 
         try:
             data = serializer.loads(token)
         except (BadSignature, SignatureExpired):
             pass # Handled at request loader level
 
-        from app.models import user_datastore
-        user = user_datastore.find_user(id=data['id'])
+        if data:
+            from app.models import user_datastore
+            user = user_datastore.find_user(id=data['id'])
 
         return user
